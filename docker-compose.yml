@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  rest-api:
+    build:
+      context: .
+      dockerfile: rest-api/Dockerfile
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+  mcp-server:
+    build:
+      context: .
+      dockerfile: mcp-server/Dockerfile
+    ports:
+      - "8090:8090"
+    restart: unless-stopped
+
+# Note: the MT5 bridge tools cannot run in this Linux container — they need a real
+# MT5 terminal (Windows, or Wine) on the same host. Run mt_bridge.py-dependent tools
+# on a separate Windows box and point your agent at it directly, or via its own
+# small REST wrapper.

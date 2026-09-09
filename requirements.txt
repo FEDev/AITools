@@ -1,0 +1,5 @@
+-r ../python/requirements.txt
+# Pinned to the 1.x API (FastMCP). mcp 2.x renamed FastMCP -> MCPServer with a different
+# API — if you want 2.x, see https://py.sdk.modelcontextprotocol.io/v2/migration/ and
+# update server.py's import + tool registration accordingly.
+mcp>=1.2.0,<2.0.0
